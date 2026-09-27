@@ -1,4 +1,4 @@
-name: 'frnmst-md-toc-action'
+name: 'Markdown Table Of Contents (md-toc) Action'
 author: 'Franco Masotti'
 description: 'Automatically generate and add an accurate table of contents to markdown files'
 branding:
