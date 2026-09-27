@@ -1,5 +1,9 @@
-name: 'md-toc action'
+name: 'frnmst-md-toc-action'
+author: 'Franco Masotti'
 description: 'Automatically generate and add an accurate table of contents to markdown files'
+branding:
+  icon: 'list'
+  color: 'gray-dark'
 inputs:
   files:
     description: 'Space-separated markdown files to update'
