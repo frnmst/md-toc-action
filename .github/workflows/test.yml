@@ -1,0 +1,24 @@
+name: Test local action
+
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Run local md-toc action
+        uses: ./
+        with:
+          files: test/input.md
+          parser: github
+          header_levels: 6
+
+      - name: Display changes
+        run: diff -u test/input.md test/expected.md
