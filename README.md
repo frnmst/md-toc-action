@@ -19,13 +19,17 @@ Automatically generate and add an accurate table of contents to markdown files.
 
 <!--TOC-->
 
-## Video
-
-[![image](./assets/md-toc_youtube_video_thumbnail.png)](https://www.youtube.com/watch?v=guyVdPNmC0A&t=49s)
-
 ## Description
 
 This action calls [md-toc](https://github.com/frnmst/md-toc) on specified files.
+
+## Testing
+
+### Run locally
+
+```shell
+sudo ./bin/act push -j test --bind
+```
 
 ## Support this project
 
