@@ -8,6 +8,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 <!--TOC-->
 
+- [Security Policy](#security-policy)
+  - [Supported Versions](#supported-versions)
+  - [Reporting a Vulnerability](#reporting-a-vulnerability)
+
+<!--TOC-->
+
 ## Supported Versions
 
 The latest
