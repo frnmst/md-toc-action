@@ -33,49 +33,68 @@ Automatically generate and add an accurate table of contents to markdown files.
 This GitHub action calls [md-toc](https://github.com/frnmst/md-toc) on
 specified files.
 
-## Quickstart
+### File globbing
 
-Firstly, toggle `Allow GitHub Actions to create and approve pull requests`
-to true in the Actions tab of your repository. Then add this workflow as
-`./github/workflows/add_md_toc.yaml`. This calls md-toc on every markdown file:
+This action supports file globbing so you can update single or multiple files
+depending on your needs. All you have to do is to specify the `files`
+expression line-by-line:
 
 ```yaml
-name: Add markdown TOCs
-
-on:
-  workflow_dispatch:
-  push:
-  pull_request:
-
-permissions:
-  contents: write 
-  pull-requests: write
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v7
-
-      - name: Run md-toc action
-        uses: frnmst/md-toc-action@0.1.0
-        with:
-          files: |
-            **/*.md
-          parser: github
-          header_levels: 6
-
-      - uses: peter-evans/create-pull-request@v8
-        with:
-          branch: automation/update-tocs
-          delete-branch: true
-          title: Update Markdown TOCs
-          commit-message: Update Markdown TOCs
-          body: |
-            Automatically generated Markdown TOC updates.
+- name: Run md-toc action
+    uses: frnmst/md-toc-action@0.2.0
+    with:
+      files: |
+        README.md
+        CHANGELOG.md
+        docs/**/*.md
+      parser: github
+      header_levels: 6
 ```
+
+## Quickstart
+
+1. toggle `Allow GitHub Actions to create and approve pull requests` to true
+   in the Actions tab of your repository.
+2. add this workflow as `./github/workflows/add_md_toc.yaml`. This calls md-toc
+   on every markdown file:
+
+   ```yaml
+   name: Add markdown TOCs
+
+   on:
+     workflow_dispatch:
+     push:
+     pull_request:
+
+   permissions:
+     contents: write 
+     pull-requests: write
+
+   jobs:
+     test:
+       runs-on: ubuntu-latest
+
+       steps:
+         - name: Check out repository
+           uses: actions/checkout@v7
+
+         - name: Run md-toc action
+           uses: frnmst/md-toc-action@0.2.0
+           with:
+             files: |
+               **/*.md
+             parser: github
+             header_levels: 6
+
+         - uses: peter-evans/create-pull-request@v8
+           with:
+             branch: automation/update-tocs
+             delete-branch: true
+             title: Update Markdown TOCs
+             commit-message: Update Markdown TOCs
+             body: |
+               Automatically generated Markdown TOC updates.
+   ```
 
 ## Testing
 
@@ -86,6 +105,32 @@ You can use act with a Docker runner:
 ```shell
 act push -j test --bind
 ```
+
+## Consulting and custom integrations
+
+If you are an organization or an individual relying on md-toc and md-toc-action
+and need help or custom integrations for other parsers or feature development,
+I'm available for contract-based freelance consulting:
+
+- Email: <solvecomputersciencecollabs+md-toc@gmail.com>
+- Freelancing: <https://blog.franco.net.eu.org/jobs/>
+
+## License
+
+Copyright (C) 2026 [Franco Masotti](https://blog.franco.net.eu.org/about/#contacts)
+
+md-toc-action is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your
+option) any later version.
+
+md-toc-action is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+more details.
+
+You should have received a copy of the GNU General Public License along
+with md-toc-action. If not, see <http://www.gnu.org/licenses/>.
 
 ## Support this project
 
