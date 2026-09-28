@@ -19,6 +19,15 @@ Automatically generate and add an accurate table of contents to markdown files.
 
 <!--TOC-->
 
+- [Markdown Table Of Contents GitHub Action](#markdown-table-of-contents-github-action)
+  - [Description](#description)
+  - [Quickstart](#quickstart)
+  - [Testing](#testing)
+    - [Run locally](#run-locally)
+  - [Support this project](#support-this-project)
+
+<!--TOC-->
+
 ## Description
 
 This GitHub action calls [md-toc](https://github.com/frnmst/md-toc) on
