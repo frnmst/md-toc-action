@@ -21,9 +21,12 @@ Automatically generate and add an accurate table of contents to markdown files.
 
 - [Markdown Table Of Contents GitHub Action](#markdown-table-of-contents-github-action)
   - [Description](#description)
+    - [File globbing](#file-globbing)
   - [Quickstart](#quickstart)
   - [Testing](#testing)
     - [Run locally](#run-locally)
+  - [Consulting and custom integrations](#consulting-and-custom-integrations)
+  - [License](#license)
   - [Support this project](#support-this-project)
 
 <!--TOC-->

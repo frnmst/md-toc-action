@@ -13,6 +13,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!--TOC-->
 
+- [Changelog](#changelog)
+  - [\[0.2.0\] 2026-09-28](#020-2026-09-28)
+    - [Added](#added)
+  - [\[0.1.0\] 2026-09-28](#010-2026-09-28)
+    - [Added](#added-1)
+
+<!--TOC-->
+
 <<<<<<< HEAD
 ## [0.2.0] 2026-09-28
 
