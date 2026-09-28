@@ -1,0 +1,27 @@
+name: 'Markdown Table Of Contents (md-toc) Action'
+author: 'Franco Masotti'
+description: 'Automatically generate and add an accurate table of contents to markdown files'
+branding:
+  icon: 'list'
+  color: 'gray-dark'
+inputs:
+  files:
+    description: 'Space-separated markdown files to update'
+    required: false
+    default: 'README.md'
+  parser:
+    description: 'Markdown parser used by md-toc'
+    required: false
+    default: 'github'
+  header_levels:
+    description: 'Maximum header levels'
+    required: false
+    default: 6
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.files }}
+    - ${{ inputs.parser }}
+    - ${{ inputs.header_levels }}

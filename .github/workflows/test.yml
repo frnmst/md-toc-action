@@ -1,0 +1,38 @@
+name: Test local action
+
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+
+permissions:
+  contents: write 
+  pull-requests: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Run local md-toc action
+        uses: ./
+        with:
+          files: |
+            README.md
+            test/input.md
+            test/dummy file with spaces.md
+            test/*.MD
+          parser: github
+          header_levels: 6
+
+      - uses: peter-evans/create-pull-request@v8
+        with:
+          branch: automation/update-tocs
+          delete-branch: true
+          title: Update Markdown TOCs
+          commit-message: Update Markdown TOCs
+          body: |
+            Automatically generated Markdown TOC updates.
