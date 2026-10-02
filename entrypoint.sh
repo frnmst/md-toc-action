@@ -16,18 +16,18 @@ header_levels="${3:-6}"
 files="${files%"${files##*[![:space:]]}"}"
 
 if [ -z "${files}" ]; then
-  echo "::error::The 'files' input cannot be empty."
-  exit 1
+    echo "::error::The 'files' input cannot be empty."
+    exit 1
 fi
 
 if [ -z "${parser}" ]; then
-  echo "::error::The 'parser' input cannot be empty."
-  exit 1
+    echo "::error::The 'parser' input cannot be empty."
+    exit 1
 fi
 
 if [ -z "${header_levels}" ]; then
-  echo "::error::The 'header_levels' input cannot be empty."
-  exit 1
+    echo "::error::The 'header_levels' input cannot be empty."
+    exit 1
 fi
 
 # Preserve spaces.
@@ -44,21 +44,21 @@ for pattern in "${files_array[@]}"; do
 done
 
 for i in "${!matches[@]}"; do
-  file=${matches[i]}
+    file=${matches[i]}
 
-  if [[ ! -f "${file}" ]]; then
-    echo "::error file=${file}::Markdown file not found."
-    exit 1
-  fi
+    if [[ ! -f "${file}" ]]; then
+        echo "::error file=${file}::Markdown file not found."
+        exit 1
+    fi
 
-  echo "Updating: "${file}""
-  echo "Parser: "${parser}""
-  echo "Header levels: "${header_levels}""
+    echo "Updating: "${file}""
+    echo "Parser: "${parser}""
+    echo "Header levels: "${header_levels}""
 
-  md_toc \
-    --in-place \
-    "${parser}" \
-    --header-levels ${header_levels} \
-    "${file}"
+    md_toc \
+        --in-place \
+        "${parser}" \
+        --header-levels ${header_levels} \
+        "${file}"
 done
 

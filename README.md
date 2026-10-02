@@ -34,7 +34,8 @@ Automatically generate and add an accurate table of contents to markdown files.
 ## Description
 
 This GitHub action calls [md-toc](https://github.com/frnmst/md-toc) on
-specified files.
+specified files and is able to generate accurate table of contents for markdown
+files.
 
 ### File globbing
 
@@ -115,7 +116,7 @@ If you are an organization or an individual relying on md-toc and md-toc-action
 and need help or custom integrations for other parsers or feature development,
 I'm available for contract-based freelance consulting:
 
-- Email: <solvecomputersciencecollabs+md-toc@gmail.com>
+- Email: <solvecomputersciencecollabs+md-toc-action@gmail.com>
 - Freelancing: <https://blog.franco.net.eu.org/jobs/>
 
 ## License
