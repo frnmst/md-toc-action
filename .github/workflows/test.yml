@@ -30,11 +30,24 @@ jobs:
           parser: github
           header_levels: 6
 
-      - uses: peter-evans/create-pull-request@v8
+      - name: Check for changes
+        id: toc_changed
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v8
+        if: ${{ steps.toc_changed.outputs.changed == 'true' }}
         with:
           branch: automation/update-tocs
           delete-branch: true
           title: Update Markdown TOCs
           commit-message: Update Markdown TOCs
           body: |
-            Automatically generated Markdown TOC updates.
+            📝 docs: Update TOC
+
+            - Automatically update [markdown TOC](https://github.com/frnmst/md-toc).
