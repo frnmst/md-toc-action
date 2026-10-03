@@ -28,6 +28,7 @@ Automatically generate and add an accurate table of contents to markdown files.
   - [Consulting and custom integrations](#consulting-and-custom-integrations)
   - [License](#license)
   - [Support this project](#support-this-project)
+<!-- TOC by https://github.com/frnmst/md-toc ver. 9.1.0 -->
 
 <!--TOC-->
 

@@ -11,6 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 - [Security Policy](#security-policy)
   - [Supported Versions](#supported-versions)
   - [Reporting a Vulnerability](#reporting-a-vulnerability)
+<!-- TOC by https://github.com/frnmst/md-toc ver. 9.1.0 -->
 
 <!--TOC-->
 
