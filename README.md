@@ -34,7 +34,7 @@ Automatically generate and add an accurate table of contents to markdown files.
 ## Description
 
 This GitHub action calls [md-toc](https://github.com/frnmst/md-toc) on
-specified files and is able to generate accurate table of contents for markdown
+specified files: it is able to generate accurate table of contents for markdown
 files.
 
 ### File globbing
@@ -90,7 +90,18 @@ expression line-by-line:
              parser: github
              header_levels: 6
 
-         - uses: peter-evans/create-pull-request@v8
+         - name: Check for changes
+           id: toc_changed
+           run: |
+             if git diff --quiet; then
+               echo "changed=false" >> "$GITHUB_OUTPUT"
+             else
+               echo "changed=true" >> "$GITHUB_OUTPUT"
+             fi
+
+         - name: Create PR
+           uses: peter-evans/create-pull-request@v8
+           if: ${{ steps.toc_changed.outputs.changed == 'true' }}
            with:
              branch: automation/update-tocs
              delete-branch: true

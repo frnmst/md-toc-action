@@ -56,6 +56,7 @@ for i in "${!matches[@]}"; do
     echo "Header levels: "${header_levels}""
 
     md_toc \
+        --show-credits \
         --in-place \
         "${parser}" \
         --header-levels ${header_levels} \
