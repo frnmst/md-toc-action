@@ -8,6 +8,19 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 <!--TOC-->
 
+- [Contributing](#contributing)
+  - [Git branches](#git-branches)
+  - [Pull requests](#pull-requests)
+  - [Variable naming](#variable-naming)
+  - [AI Policy](#ai-policy)
+    - [Commits](#commits)
+    - [Models](#models)
+    - [LLM codebase input](#llm-codebase-input)
+  - [Note](#note)
+<!-- TOC by https://github.com/frnmst/md-toc ver. 9.1.0 -->
+
+<!--TOC-->
+
 If you want to contribute, please follow these simple policies.
 
 ## Git branches
