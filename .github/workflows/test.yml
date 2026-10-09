@@ -3,7 +3,8 @@ name: Test local action
 on:
   workflow_dispatch:
   push:
-  pull_request:
+    branches:
+      - dev
 
 permissions:
   contents: write 
@@ -24,6 +25,7 @@ jobs:
             README.md
             CHANGELOG.md
             SECURITY.md
+            CONTRIBUTING.md
             test/input.md
             test/dummy file with spaces.md
             test/*.MD
@@ -44,6 +46,7 @@ jobs:
         if: ${{ steps.toc_changed.outputs.changed == 'true' }}
         with:
           branch: automation/update-tocs
+          base: dev
           delete-branch: true
           title: Update Markdown TOCs
           commit-message: Update Markdown TOCs

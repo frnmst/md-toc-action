@@ -67,6 +67,7 @@ if you are unsure about what they do.
 If these indications are not followed, your contribution cannot be merged in
 the codebase.
 
-[^1]: [Codeberg](https://codeberg.org/frnmst/python-makefile),
+[^1]: [GitHub](https://github.com/frnmst/python-makefile),
+      [Codeberg](https://codeberg.org/frnmst/python-makefile),
       [Framagit](https://framagit.org/frnmst/python-makefile),
       [Self-hosted Forgejo](https://repos.franco.net.eu.org/frnmst/python-makefile)

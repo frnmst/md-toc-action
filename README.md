@@ -38,6 +38,9 @@ This GitHub action calls [md-toc](https://github.com/frnmst/md-toc) on
 specified files: it is able to generate accurate table of contents for markdown
 files.
 
+> [!NOTE]
+> md-toc also has a pre-commit hook if you prefer to run workflows locally.
+
 ### File globbing
 
 This action supports file globbing so you can update single or multiple files
@@ -46,7 +49,7 @@ expression line-by-line:
 
 ```yaml
 - name: Run md-toc action
-    uses: frnmst/md-toc-action@0.2.0
+    uses: frnmst/md-toc-action@0.5.0
     with:
       files: |
         README.md
@@ -58,10 +61,14 @@ expression line-by-line:
 
 ## Quickstart
 
+This workflow file executes md-toc on Git push on the `dev` branch or manually
+via the GitHub action button. You can customize the `on.` conditions to your
+needs. Also check the `base` branch in the `Create PR` step.
+
 1. toggle `Allow GitHub Actions to create and approve pull requests` to true
    in the Actions tab of your repository.
-2. add this workflow as `./github/workflows/add_md_toc.yaml`. This calls md-toc
-   on every markdown file:
+2. add this workflow as `./github/workflows/add_md_toc.yaml`. This calls
+   [md-toc](https://github.com/frnmst/md-toc) on every markdown file:
 
    ```yaml
    name: Add markdown TOCs
@@ -69,7 +76,8 @@ expression line-by-line:
    on:
      workflow_dispatch:
      push:
-     pull_request:
+       branches:
+         - dev
 
    permissions:
      contents: write 
@@ -84,7 +92,7 @@ expression line-by-line:
            uses: actions/checkout@v7
 
          - name: Run md-toc action
-           uses: frnmst/md-toc-action@0.2.0
+           uses: frnmst/md-toc-action@0.5.0
            with:
              files: |
                **/*.md
@@ -105,6 +113,7 @@ expression line-by-line:
            if: ${{ steps.toc_changed.outputs.changed == 'true' }}
            with:
              branch: automation/update-tocs
+             base: dev
              delete-branch: true
              title: Update Markdown TOCs
              commit-message: Update Markdown TOCs
